@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>La Casa del Helado</title>
+<link rel="icon" type="image/png" href="CASA DEL HELADO LOGO.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#16100e;
+  --ink2:#4a3b35;
+  --coral:#d76fcf;
+  --coral2:#a5408a;
+  --peach:#f9ede8;
+  --warm:#fdf5f2;
+  --sand:#ede0d8;
+  --mid:#e8d5cc;
+  --white:#ffffff;
+  --wa:#25d366;
+  --nav-h:68px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ANN BAR */
+.ann{background:var(--coral);color:#fff;text-align:center;padding:.5rem 1rem;font-size:.76rem;letter-spacing:.6px;font-weight:500}
+.ann a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:var(--white);height:var(--nav-h);border-bottom:1px solid var(--mid)}
+.nav-i{max-width:1400px;margin:0 auto;padding:0 48px;width:100%;height:100%;display:flex;align-items:center;gap:0}
+.logo{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:500;color:var(--ink);letter-spacing:.3px;white-space:nowrap;flex-shrink:0;margin-right:2.5rem;display:flex;align-items:center;gap:.65rem}
+.logo-mark{width:38px;height:38px;flex-shrink:0;display:block}
+.logo-mark img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.logo em{font-style:italic;color:var(--coral)}
+.nav-links{display:flex;list-style:none;height:100%;align-items:center}
+.nav-links>li{position:relative;height:100%;display:flex;align-items:center}
+.nav-links>li>a{padding:0 1.1rem;font-size:.82rem;font-weight:500;color:var(--ink2);letter-spacing:.2px;height:100%;display:flex;align-items:center;gap:.3rem;transition:color .2s}
+.nav-links>li>a:hover,.nav-links>li>a.act{color:var(--coral)}
+.nav-links>li>a svg{transition:transform .2s}
+.nav-links>li:hover>a svg{transform:rotate(180deg)}
+
+/* Dropdown */
+.drop{position:absolute;top:var(--nav-h);left:50%;transform:translateX(-50%);background:var(--white);border-top:2px solid var(--coral);box-shadow:0 16px 48px rgba(22,16,14,.12);min-width:480px;padding:1.8rem;display:none;grid-template-columns:repeat(3,1fr);gap:1rem;z-index:300}
+.nav-links>li:hover .drop{display:grid}
+.drop-item{display:flex;flex-direction:column;gap:.5rem;padding:.7rem;border-radius:4px;cursor:pointer;transition:background .2s}
+.drop-item:hover{background:var(--warm)}
+.drop-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;background:var(--sand)}
+.drop-lbl{font-size:.8rem;font-weight:500;color:var(--ink);letter-spacing:.1px}
+
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.nbtn{border:none;padding:.55rem 1.4rem;font-size:.76rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+.nbtn-ghost{background:transparent;border:1px solid var(--mid);color:var(--ink2)}
+.nbtn-ghost:hover{border-color:var(--coral);color:var(--coral)}
+.nbtn-solid{background:var(--coral);border:1px solid var(--coral);color:#fff;border-radius:0}
+.nbtn-solid:hover{background:var(--coral2)}
+.nbtn-cart{position:relative;background:transparent;border:1px solid var(--mid);color:var(--ink2);padding:.55rem .8rem}
+.nbtn-cart:hover{border-color:var(--coral);color:var(--coral)}
+.nbtn-cart .cart-badge{position:absolute;top:-7px;right:-7px;background:var(--coral);color:#fff;font-size:.62rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1}
+.ham{display:none;flex-direction:column;gap:4.5px;background:none;border:none;padding:6px;cursor:pointer}
+.ham span{display:block;width:21px;height:1.5px;background:var(--ink);transition:.3s}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;height:88vh;min-height:520px;max-height:820px}
+.h-slide{position:absolute;inset:0;display:flex;align-items:flex-end;opacity:0;transition:opacity .9s ease;pointer-events:none}
+.h-slide.on{opacity:1;pointer-events:auto}
+.h-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 9s linear}
+.h-slide.on .h-bg{transform:scale(1.05)}
+.h-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,16,14,.78) 0%,rgba(22,16,14,.15) 55%,transparent 100%)}
+.h-cnt{position:relative;z-index:2;padding:0 9% 8%;color:#fff;max-width:700px}
+.h-eye{font-size:.7rem;letter-spacing:3.5px;text-transform:uppercase;font-weight:500;color:rgba(249,237,232,.85);margin-bottom:1.3rem;display:flex;align-items:center;gap:.8rem}
+.h-eye::after{content:'';flex:0 0 36px;height:1px;background:rgba(255,255,255,.3)}
+.h-t1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6.5vw,5rem);font-weight:400;line-height:1.05;letter-spacing:-.5px;margin-bottom:.5rem}
+.h-t1 em{font-style:italic;color:var(--peach)}
+.h-t2{font-size:clamp(1rem,2vw,1.25rem);font-weight:300;color:rgba(255,255,255,.75);margin-bottom:2.4rem;line-height:1.6}
+.h-acts{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-p{background:var(--coral);color:#fff;border:none;padding:.85rem 2.2rem;font-size:.76rem;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s,transform .15s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-p:hover{background:var(--coral2);transform:translateY(-1px)}
+.btn-o{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45);padding:.85rem 2.2rem;font-size:.76rem;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .2s,background .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-o:hover{border-color:#fff;background:rgba(255,255,255,.07)}
+.h-dots{position:absolute;bottom:2.8rem;right:9%;display:flex;gap:.5rem;z-index:3}
+.h-dot{width:24px;height:2px;background:rgba(255,255,255,.3);border:none;padding:0;cursor:pointer;transition:background .3s,width .3s}
+.h-dot.on{background:#fff;width:40px}
+
+/* SECTION */
+.sec{padding:72px 48px}
+.si{max-width:1400px;margin:0 auto}
+.s-lbl{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--coral);margin-bottom:.9rem}
+.s-h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:400;line-height:1.1;color:var(--ink)}
+.s-h2 em{font-style:italic;color:var(--coral)}
+.s-sub{margin-top:.85rem;font-size:.92rem;color:var(--ink2);font-weight:300;line-height:1.8;max-width:500px}
+
+/* FEATURE BANNER — coffeebean-style horizontal split */
+.feat-band{background:var(--peach);display:grid;grid-template-columns:1fr 1fr}
+.feat-img{width:100%;height:420px;object-fit:cover}
+.feat-body{display:flex;flex-direction:column;justify-content:center;padding:4rem 5rem}
+.feat-tag{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--coral);margin-bottom:1.2rem}
+.feat-h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:1rem}
+.feat-h2 em{font-style:italic}
+.feat-p{font-size:.9rem;color:var(--ink2);font-weight:300;line-height:1.8;margin-bottom:2rem;max-width:400px}
+.feat-link{display:inline-flex;align-items:center;gap:.6rem;font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
+.feat-link:hover{color:var(--coral);border-color:var(--coral)}
+
+/* CATEGORY MOSAIC */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.mos-tile{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:var(--sand)}
+.mos-tile.tall{grid-row:span 2;aspect-ratio:auto}
+.mos-tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94)}
+.mos-tile:hover img{transform:scale(1.07)}
+.mos-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,16,14,.7) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.6rem 1.5rem}
+.mos-label{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;color:#fff;line-height:1.2;margin-bottom:.7rem}
+.mos-cta{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px;width:fit-content;transition:color .2s,border-color .2s}
+.mos-tile:hover .mos-cta{color:#fff;border-color:#fff}
+
+/* MENU */
+.menu-bg{background:var(--warm)}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--mid);margin-bottom:3rem;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{background:none;border:none;border-bottom:2px solid transparent;padding:.9rem 1.5rem;font-size:.78rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;color:var(--ink2);cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.tab.on{color:var(--coral);border-bottom-color:var(--coral)}
+.tab:hover{color:var(--ink)}
+.m-sec{display:none}
+.m-sec.vis{display:block}
+.m-sec-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;color:var(--ink);margin-bottom:1.6rem;padding-bottom:.7rem;border-bottom:1px solid var(--mid);display:flex;align-items:center;gap:.9rem}
+.m-sec-title::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--coral);flex-shrink:0}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1px;background:var(--mid);margin-bottom:3rem}
+.mcard{background:var(--white);padding:0;display:flex;flex-direction:column;transition:background .2s;overflow:hidden}
+.mcard:hover{background:var(--warm)}
+.mcard-img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--sand)}
+.mcard-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+.mcard-row{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;margin-bottom:.5rem}
+.mcard-name{font-size:.9rem;font-weight:600;color:var(--ink);flex:1;line-height:1.35}
+.mcard-price{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:500;color:var(--coral);white-space:nowrap}
+.mcard-desc{font-size:.82rem;color:var(--ink2);line-height:1.65;font-weight:300;margin-bottom:1.2rem;flex:1}
+.mcard-wa{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--wa);color:#fff;padding:.6rem 0;font-size:.71rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;font-family:'DM Sans',sans-serif;border:none;cursor:pointer;transition:background .2s;width:100%;margin-top:auto}
+.mcard-wa:hover{background:#1db954}
+.toppings-wrap{margin-bottom:2rem}
+.t-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.2rem}
+.t-tag{border:1px solid var(--mid);padding:.4rem 1rem;font-size:.79rem;font-weight:400;color:var(--ink2);letter-spacing:.2px;background:var(--white);transition:all .2s}
+.t-tag:hover{background:var(--peach);border-color:var(--peach);color:var(--ink)}
+.t-note{font-size:.82rem;color:var(--ink2);font-weight:300;font-style:italic;margin-bottom:1.5rem}
+
+/* THREE COL INFO */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--mid)}
+.info-col{background:var(--white);overflow:hidden}
+.info-img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--sand)}
+.info-body{padding:2rem 1.8rem 2.5rem}
+.info-tag{font-size:.67rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:var(--coral);margin-bottom:.7rem}
+.info-h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;line-height:1.3;color:var(--ink);margin-bottom:.8rem}
+.info-p{font-size:.85rem;color:var(--ink2);line-height:1.75;font-weight:300;margin-bottom:1.5rem}
+.info-a{display:inline-flex;align-items:center;gap:.5rem;font-size:.71rem;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:1px;transition:color .2s,border-color .2s}
+.info-a:hover{color:var(--coral);border-color:var(--coral)}
+
+/* ABOUT SPLIT */
+.about-band{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+.about-img-w{overflow:hidden}
+.about-img-w img{width:100%;height:100%;object-fit:cover}
+.about-txt{background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:5rem 5.5rem;color:#fff}
+.about-txt .s-lbl{color:rgba(249,237,232,.65)}
+.about-txt .s-h2{color:#fff;font-size:clamp(1.8rem,3vw,2.8rem)}
+.about-txt .s-h2 em{color:var(--peach)}
+.about-txt .s-sub{color:rgba(255,255,255,.55);max-width:420px}
+.about-txt .btn-p{margin-top:2.4rem;width:fit-content}
+
+/* CONTACT */
+.contact-bg{background:var(--ink)}
+.contact-bg .s-lbl{color:rgba(249,237,232,.6)}
+.contact-bg .s-h2{color:#fff}
+.contact-bg .s-sub{color:rgba(255,255,255,.45)}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.06);margin-top:3rem}
+.ccard{background:var(--ink);padding:2.4rem;border:1px solid rgba(255,255,255,.06)}
+.ccard-lbl{font-size:.66rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:var(--coral);margin-bottom:.8rem}
+.ccard-h3{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:400;color:#fff;margin-bottom:.8rem}
+.ccard-p{font-size:.87rem;color:rgba(255,255,255,.45);line-height:1.75;font-weight:300}
+.ccard-a{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.3rem;font-size:.71rem;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:1px;transition:color .2s,border-color .2s}
+.ccard-a:hover{color:var(--peach);border-color:var(--peach)}
+.soc-row{display:flex;gap:.7rem;margin-top:1.8rem}
+.soc{width:38px;height:38px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);transition:all .2s}
+.soc:hover{border-color:var(--coral);color:var(--coral)}
+.map-w{width:100%;height:320px;background:#1a1318}
+.map-w iframe{width:100%;height:100%;border:none;filter:grayscale(100%) invert(1) contrast(.85)}
+
+/* FOOTER */
+footer{background:#100b09;color:rgba(255,255,255,.3);padding:3rem 48px}
+.foot-i{max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:1.8rem}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;color:rgba(255,255,255,.65);letter-spacing:.3px}
+.foot-logo em{font-style:italic;color:var(--peach)}
+.foot-tag{font-size:.76rem;margin-top:.3rem;letter-spacing:.3px;font-weight:300}
+.foot-links{display:flex;gap:2.2rem;flex-wrap:wrap;list-style:none}
+.foot-links a{font-size:.77rem;font-weight:400;color:rgba(255,255,255,.3);transition:color .2s}
+.foot-links a:hover{color:rgba(255,255,255,.65)}
+.foot-btm{border-top:1px solid rgba(255,255,255,.06);padding-top:1.4rem;font-size:.71rem}
+
+/* WA FAB */
+.wa-fab{position:fixed;bottom:24px;right:24px;z-index:300;background:var(--wa);color:#fff;display:flex;align-items:center;gap:.55rem;padding:.7rem 1.3rem;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;font-family:'DM Sans',sans-serif;box-shadow:0 6px 24px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s;animation:fabUp .5s .3s both}
+.wa-fab:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,.45)}
+@keyframes fabUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.wa-t{display:inline}
+
+/* MOBILE NAV */
+.mob{display:none;position:fixed;inset:0;z-index:250;background:var(--white);flex-direction:column;padding:calc(var(--nav-h) + 2rem) 40px 3rem;overflow-y:auto}
+.mob.open{display:flex}
+.mob a{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:400;color:var(--ink2);padding:.55rem 0;border-bottom:1px solid var(--mid)}
+.mob a:hover{color:var(--coral)}
+.mob-x{position:fixed;top:1.5rem;right:40px;z-index:260;background:none;border:none;color:var(--ink);font-size:1.8rem;cursor:pointer}
+.mob-cta{margin-top:1.8rem;background:var(--coral);color:#fff;padding:.9rem 2rem;font-size:.78rem;letter-spacing:1.4px;text-transform:uppercase;font-weight:600;text-align:center;display:block}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}
+.d2{transition-delay:.2s}
+.d3{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .feat-band{grid-template-columns:1fr}
+  .feat-img{height:340px}
+  .feat-body{padding:3rem}
+  .about-band{grid-template-columns:1fr}
+  .about-txt{padding:3.5rem 3rem}
+  .mosaic{grid-template-columns:repeat(2,1fr)}
+  .mos-tile.tall{grid-row:auto}
+  .info-grid{grid-template-columns:1fr}
+  .cgrid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .sec{padding:56px 20px}
+  nav .nav-links,.nav-r{display:none}
+  .ham{display:flex}
+  .hero{height:78vh;min-height:460px}
+  .h-cnt{padding:0 6% 7%}
+  .mosaic{grid-template-columns:1fr}
+  .mos-tile.tall{grid-row:auto}
+  footer{padding:3rem 20px}
+  .foot-top{flex-direction:column}
+  .mob-x{right:20px}
+  .mob{padding-left:20px;padding-right:20px}
+  .wa-t{display:none}
+  .wa-fab{padding:.85rem;border-radius:50%}
+  .feat-body{padding:2.5rem 1.5rem}
+}
+@media(max-width:480px){.mgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.fade,.fade.in{transition:none}.wa-fab{animation:none}.h-slide{transition:none}.h-bg{transform:none!important}}
+
+/* ===== LOGO ===== */
+.logo-mark svg{width:100%;height:100%}
+
+/* ===== CART SYSTEM ===== */
+.mcard-add{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--coral);color:#fff;padding:.6rem 0;font-size:.71rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;font-family:'DM Sans',sans-serif;border:none;cursor:pointer;transition:background .2s;width:100%;margin-top:auto}
+.mcard-add:hover{background:var(--coral2)}
+.mcard-add.added{background:var(--ink)}
+.mcard-stepper{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:auto;background:var(--peach);border:1px solid var(--mid)}
+.mcard-stepper button{width:38px;height:38px;flex-shrink:0;border:none;background:transparent;color:var(--coral2);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s}
+.mcard-stepper button:hover{background:var(--mid)}
+.mcard-stepper .mcard-qty{font-size:.82rem;font-weight:700;color:var(--ink);letter-spacing:.3px}
+
+.cart-fab{position:fixed;bottom:24px;right:24px;z-index:300;background:var(--ink);color:#fff;display:flex;align-items:center;gap:.6rem;padding:.75rem 1.4rem;font-size:.76rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;font-family:'DM Sans',sans-serif;box-shadow:0 6px 24px rgba(22,16,14,.3);transition:transform .2s,box-shadow .2s;border:none;cursor:pointer;animation:fabUp .5s .3s both}
+.cart-fab:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(22,16,14,.4)}
+.cart-fab .cart-fab-badge{background:var(--coral);color:#fff;font-size:.66rem;font-weight:700;min-width:19px;height:19px;padding:0 4px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1}
+.cart-fab .cart-fab-badge.zero{display:none}
+
+.cart-overlay{position:fixed;inset:0;background:rgba(22,16,14,.5);z-index:400;opacity:0;pointer-events:none;transition:opacity .25s}
+.cart-overlay.open{opacity:1;pointer-events:auto}
+.cart-drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--white);z-index:401;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:-12px 0 40px rgba(22,16,14,.18)}
+.cart-drawer.open{transform:translateX(0)}
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding:1.6rem 1.6rem 1.2rem;border-bottom:1px solid var(--mid)}
+.cart-head h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:400;color:var(--ink)}
+.cart-close{background:none;border:none;font-size:1.6rem;line-height:1;color:var(--ink2);cursor:pointer;padding:0 .3rem;transition:color .2s}
+.cart-close:hover{color:var(--coral)}
+.cart-items{flex:1;overflow-y:auto;padding:.5rem 1.6rem}
+.cart-empty{padding:3rem 1rem;text-align:center;color:var(--ink2);font-size:.85rem;font-weight:300;line-height:1.7}
+.cart-empty a{color:var(--coral);font-weight:600;border-bottom:1px solid var(--coral)}
+.cart-row{display:flex;align-items:center;gap:.9rem;padding:1.1rem 0;border-bottom:1px solid var(--mid)}
+.cart-row-info{flex:1;min-width:0}
+.cart-row-name{font-size:.85rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;line-height:1.3}
+.cart-row-price{font-size:.76rem;color:var(--ink2);font-weight:300}
+.cart-row-ctrl{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.cart-row-ctrl button{width:26px;height:26px;border:1px solid var(--mid);background:var(--white);color:var(--coral2);font-size:.9rem;font-weight:700;cursor:pointer;transition:background .15s}
+.cart-row-ctrl button:hover{background:var(--peach)}
+.cart-row-ctrl .cart-row-qty{font-size:.82rem;font-weight:700;min-width:16px;text-align:center}
+.cart-row-remove{background:none;border:none;color:var(--ink2);font-size:.68rem;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;flex-shrink:0;text-decoration:underline;text-underline-offset:2px;transition:color .2s}
+.cart-row-remove:hover{color:var(--coral2)}
+.cart-foot{padding:1.4rem 1.6rem 1.8rem;border-top:1px solid var(--mid);background:var(--warm)}
+.cart-total-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.1rem}
+.cart-total-row span:first-child{font-size:.78rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;color:var(--ink2)}
+.cart-total-row span:last-child{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:500;color:var(--coral2)}
+.cart-send{display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--wa);color:#fff;border:none;padding:.85rem 0;width:100%;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;transition:background .2s;margin-bottom:.7rem}
+.cart-send:hover{background:#1db954}
+.cart-send:disabled{background:var(--mid);color:var(--ink2);cursor:not-allowed}
+.cart-clear{display:block;width:100%;background:none;border:none;color:var(--ink2);font-size:.74rem;letter-spacing:.5px;text-transform:uppercase;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:.3rem 0;transition:color .2s}
+.cart-clear:hover{color:var(--coral2)}
+@media(max-width:768px){
+  .cart-fab{bottom:90px}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="ann">
+  Pedidos rapidos por WhatsApp al <a href="https://wa.me/18296343930" target="_blank" rel="noopener">+1 (829) 634-3930</a> &mdash; Barrio La Esperanza, Santo Domingo Oeste
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-i">
+    <a href="#inicio" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="https://ibb.co/MrB2yKN">
+          <circle cx="24" cy="24" r="23" fill="#fdf5f2" stroke="#d76fcf" stroke-width="2"/>
+          <path d="M24 12c4.4 0 8 3.4 8 7.7 0 .5-.3.9-.7 1-3.5.9-6 4-6.3 7.6h-2c-.3-3.6-2.8-6.7-6.3-7.6-.4-.1-.7-.5-.7-1 0-4.3 3.6-7.7 8-7.7z" fill="#d76fcf"/>
+          <path d="M22.4 28h3.2l-1 8.6c-.1.9-.8 1.4-1.6.9-.4-.2-.6-.6-.6-1z" fill="#a5408a"/>
+          <circle cx="19" cy="17.5" r="1.4" fill="#fff"/>
+          <circle cx="27.5" cy="16" r="1.1" fill="#fff"/>
+        </svg>
+      </span>
+      La Casa <em>del Helado</em>
+    </a>
+    <ul class="nav-links">
+      <li>
+        <a href="#menu">
+          Menu
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="drop">
+          <a href="#menu" class="drop-item" data-cat="cremitas">
+            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&q=80" alt="Cremitas" class="drop-img"/>
+            <span class="drop-lbl">Cremitas Artesanales</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="batidas">
+            <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80" alt="Batidas" class="drop-img"/>
+            <span class="drop-lbl">Batidas con Carnation</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="tostadas">
+            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&q=80" alt="Tostadas" class="drop-img"/>
+            <span class="drop-lbl">Tostadas</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="paletas">
+            <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=400&q=80" alt="Paletas" class="drop-img"/>
+            <span class="drop-lbl">Paletas</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="jugos">
+            <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Jugos" class="drop-img"/>
+            <span class="drop-lbl">Jugos Naturales</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="toppings">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80" alt="Toppings" class="drop-img"/>
+            <span class="drop-lbl">Toppings</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-r">
+      <a href="https://wa.me/18296343930" target="_blank" rel="noopener" class="nbtn nbtn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4.48 4.48 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.302-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0"/></svg>
+        WhatsApp
+      </a>
+      <a href="#menu" class="nbtn nbtn-solid">Ver el menu</a>
+      <button class="nbtn nbtn-cart" id="navCartBtn" aria-label="Ver carrito">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        <span class="cart-badge" id="navCartBadge" style="display:none">0</span>
+      </button>
+    </div>
+    <button class="ham" id="hambBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<nav class="mob" id="mobNav">
+  <button class="mob-x" id="mobClose">&times;</button>
+  <a href="#inicio" class="mob-link">Inicio</a>
+  <a href="#menu" class="mob-link">Menu</a>
+  <a href="#nosotros" class="mob-link">Nosotros</a>
+  <a href="#contacto" class="mob-link">Contacto</a>
+  <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="mob-cta">Pedir por WhatsApp</a>
+</nav>
+
+<!-- HERO SLIDER -->
+<section class="hero" id="inicio">
+  <div class="h-slide on">
+    <div class="h-bg" style="background-image:url('https://images.unsplash.com/photo-1488900128323-21503983a07e?w=1920&q=85')"></div>
+    <div class="h-ov"></div>
+    <div class="h-cnt">
+      <p class="h-eye">Barrio La Esperanza, Santo Domingo</p>
+      <h1 class="h-t1">Dulce frescura<br><em>que enamora</em></h1>
+      <p class="h-t2">Cremitas artesanales, paletas y batidas tropicales desde RD$15</p>
+      <div class="h-acts">
+        <a href="#menu" class="btn-p">Ver el menu</a>
+        <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="btn-o">Pedir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="h-slide">
+    <div class="h-bg" style="background-image:url('https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=1920&q=85')"></div>
+    <div class="h-ov"></div>
+    <div class="h-cnt">
+      <p class="h-eye">Paletas artesanales</p>
+      <h1 class="h-t1">Sabores que<br><em>recuerdan el verano</em></h1>
+      <p class="h-t2">Fresa, chocolate y nuestra paleta revertida especial</p>
+      <div class="h-acts">
+        <a href="#menu" class="btn-p">Ver paletas</a>
+      </div>
+    </div>
+  </div>
+  <div class="h-slide">
+    <div class="h-bg" style="background-image:url('https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=1920&q=85')"></div>
+    <div class="h-ov"></div>
+    <div class="h-cnt">
+      <p class="h-eye">Batidas con Carnation</p>
+      <h1 class="h-t1">El sabor<br><em>de lo nuestro</em></h1>
+      <p class="h-t2">Lechosa, zapote, guineo y fresa con Carnation</p>
+      <div class="h-acts">
+        <a href="#menu" class="btn-p">Ver batidas</a>
+        <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20una%20batida%20de%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="btn-o">Pedir ahora</a>
+      </div>
+    </div>
+  </div>
+  <div class="h-dots">
+    <button class="h-dot on" data-i="0"></button>
+    <button class="h-dot" data-i="1"></button>
+    <button class="h-dot" data-i="2"></button>
+  </div>
+</section>
+
+<!-- FEATURE BAND -->
+<div class="feat-band">
+  <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=1000&q=85" alt="Cremitas artesanales" class="feat-img"/>
+  <div class="feat-body">
+    <p class="feat-tag">Lo mas pedido</p>
+    <h2 class="feat-h2">Cremitas desde<br><em>RD$15</em></h2>
+    <p class="feat-p">Fresa, coco, chicle, pina y mas sabores. Preparadas a mano con ingredientes frescos, cada cremita lleva el sabor autentico del barrio.</p>
+    <a href="#menu" class="feat-link" onclick="openTab('cremitas');this.closest('a').setAttribute('href','#menu')">Ver cremitas</a>
+  </div>
+</div>
+
+<!-- CATEGORY MOSAIC -->
+<section class="sec" id="categorias" style="padding-bottom:0">
+  <div class="si">
+    <div class="sec-head fade" style="margin-bottom:2.5rem">
+      <p class="s-lbl">Todo lo que tenemos</p>
+      <h2 class="s-h2">Una heladeria familiar<br><em>con sabor dominicano</em></h2>
+    </div>
+  </div>
+</section>
+<div class="si" style="max-width:1400px;margin:0 auto;padding:0 48px 72px">
+  <div class="mosaic fade">
+    <div class="mos-tile tall" onclick="openTabAndScroll('cremitas')">
+      <img src="https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=800&q=85" alt="Cremitas artesanales"/>
+      <div class="mos-ov">
+        <p class="mos-label">Cremitas<br>Artesanales</p>
+        <span class="mos-cta">Desde RD$15 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('batidas')">
+      <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=700&q=85" alt="Batidas"/>
+      <div class="mos-ov">
+        <p class="mos-label">Batidas con Carnation</p>
+        <span class="mos-cta">Desde RD$60 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('tostadas')">
+      <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=700&q=85" alt="Tostadas"/>
+      <div class="mos-ov">
+        <p class="mos-label">Tostadas</p>
+        <span class="mos-cta">Desde RD$50 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('paletas')">
+      <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=700&q=85" alt="Paletas"/>
+      <div class="mos-ov">
+        <p class="mos-label">Paletas</p>
+        <span class="mos-cta">Desde RD$15 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('jugos')">
+      <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=700&q=85" alt="Jugos naturales"/>
+      <div class="mos-ov">
+        <p class="mos-label">Jugos Naturales</p>
+        <span class="mos-cta">Desde RD$40 &rarr;</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="sec menu-bg" id="menu">
+  <div class="si">
+    <div class="sec-head fade" style="margin-bottom:2.5rem">
+      <p class="s-lbl">Menu completo</p>
+      <h2 class="s-h2">Cada producto,<br><em>hecho con cuidado</em></h2>
+      <p class="s-sub">Agrega los productos que quieras al carrito y envia todo tu pedido por WhatsApp de una sola vez.</p>
+    </div>
+    <div class="tabs" id="tabsBar">
+      <button class="tab on" data-cat="all">Todo</button>
+      <button class="tab" data-cat="tostadas">Tostadas</button>
+      <button class="tab" data-cat="batidas">Batidas</button>
+      <button class="tab" data-cat="jugos">Jugos</button>
+      <button class="tab" data-cat="cremitas">Cremitas</button>
+      <button class="tab" data-cat="paletas">Paletas</button>
+      <button class="tab" data-cat="toppings">Toppings</button>
+    </div>
+
+    <!-- TOSTADAS -->
+    <div class="m-sec vis" id="cat-tostadas">
+      <h3 class="m-sec-title">Tostadas</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=80" alt="Tostada Normal" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada Normal</span><span class="mcard-price">RD$50</span></div>
+            <p class="mcard-desc">Tostada clasica, crujiente y dorada al punto perfecto.</p>
+            <div class="mcard-ctrl" data-name="Tostada Normal" data-price="50"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80" alt="Tostada con Huevo" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada con Huevo</span><span class="mcard-price">RD$65</span></div>
+            <p class="mcard-desc">Tostada con huevo frito o revuelto, ideal para empezar el dia.</p>
+            <div class="mcard-ctrl" data-name="Tostada con Huevo" data-price="65"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80" alt="Tostada con Tocineta" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada con Tocineta</span><span class="mcard-price">RD$75</span></div>
+            <p class="mcard-desc">Tostada crujiente con tocineta dorada y sabrosa.</p>
+            <div class="mcard-ctrl" data-name="Tostada con Tocineta" data-price="75"></div>
+          </div>
+        </div>
+        <div class="mcard fade d3">
+          <img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?w=600&q=80" alt="Tostada con Huevo y Tocineta" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada con Huevo y Tocineta</span><span class="mcard-price">RD$100</span></div>
+            <p class="mcard-desc">La combinacion perfecta: huevo y tocineta juntos en una misma tostada.</p>
+            <div class="mcard-ctrl" data-name="Tostada con Huevo y Tocineta" data-price="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATIDAS -->
+    <div class="m-sec vis" id="cat-batidas">
+      <h3 class="m-sec-title">Batidas con Carnation</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80" alt="Lechosa con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Lechosa con Carnation</span><span class="mcard-price">RD$60</span></div>
+            <p class="mcard-desc">Cremosa batida de lechosa natural con leche Carnation.</p>
+            <div class="mcard-ctrl" data-name="Batida de Lechosa con Carnation" data-price="60"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&q=80" alt="Zapote con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Zapote con Carnation</span><span class="mcard-price">RD$60</span></div>
+            <p class="mcard-desc">El sabor unico del zapote dominicano en una batida fria y densa.</p>
+            <div class="mcard-ctrl" data-name="Batida de Zapote con Carnation" data-price="60"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1602595908921-4f5f63aaeaf7?w=600&q=80" alt="Guineo con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Guineo con Carnation</span><span class="mcard-price">RD$60</span></div>
+            <p class="mcard-desc">Batida de guineo maduro con Carnation, suave y deliciosa.</p>
+            <div class="mcard-ctrl" data-name="Batida de Guineo con Carnation" data-price="60"></div>
+          </div>
+        </div>
+        <div class="mcard fade d3">
+          <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80" alt="Fresa con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Fresa con Carnation</span><span class="mcard-price">RD$75</span></div>
+            <p class="mcard-desc">Fresas frescas con Carnation para un sabor inigualable.</p>
+            <div class="mcard-ctrl" data-name="Batida de Fresa con Carnation" data-price="75"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUGOS -->
+    <div class="m-sec vis" id="cat-jugos">
+      <h3 class="m-sec-title">Jugos Naturales</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80" alt="Jugo de Chinola" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Jugo de Chinola</span><span class="mcard-price">RD$40</span></div>
+            <p class="mcard-desc">Natural de chinola, refrescante y lleno de vitamina C.</p>
+            <div class="mcard-ctrl" data-name="Jugo Natural de Chinola" data-price="40"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1587015990127-424b954571a6?w=600&q=80" alt="Jugo de Limon" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Jugo de Limon</span><span class="mcard-price">RD$40</span></div>
+            <p class="mcard-desc">Limon fresco exprimido, ideal para el calor dominicano.</p>
+            <div class="mcard-ctrl" data-name="Jugo Natural de Limon" data-price="40"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80" alt="Jugo de Cereza" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Jugo de Cereza</span><span class="mcard-price">RD$40</span></div>
+            <p class="mcard-desc">Jugo natural de cereza, dulce y de un color precioso.</p>
+            <div class="mcard-ctrl" data-name="Jugo Natural de Cereza" data-price="40"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CREMITAS -->
+    <div class="m-sec vis" id="cat-cremitas">
+      <h3 class="m-sec-title">Cremitas Artesanales</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=80" alt="Cremita de Fresa" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Fresa</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Cremita artesanal con intenso sabor a fresa fresca.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Fresa" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=600&q=80" alt="Cremita de Coco" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Coco</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Suave y tropical, con todo el sabor del coco dominicano.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Coco" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&q=80" alt="Cremita de Chicle" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Chicle</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Divertida y colorida, el sabor clasico que encanta a todos.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Chicle" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d3">
+          <img src="https://images.unsplash.com/photo-1559622214-f8a9850965bb?w=600&q=80" alt="Cremita de Pina" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Piña</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Frescura tropical con el dulce sabor de la pina.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Pina" data-price="15"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PALETAS -->
+    <div class="m-sec vis" id="cat-paletas">
+      <h3 class="m-sec-title">Paletas</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=600&q=80" alt="Paleta de Fresa" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Paleta de Fresa</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Paleta fria con intenso sabor a fresa natural.</p>
+            <div class="mcard-ctrl" data-name="Paleta de Fresa" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&q=80" alt="Paleta de Chocolate" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Paleta de Chocolate</span><span class="mcard-price">RD$30</span></div>
+            <p class="mcard-desc">Paleta cubierta en chocolate, un clasico que nunca falla.</p>
+            <div class="mcard-ctrl" data-name="Paleta de Chocolate" data-price="30"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&q=80" alt="Paleta Revertida" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Paleta Revertida</span><span class="mcard-price">RD$35</span></div>
+            <p class="mcard-desc">Nuestra paleta especial de capas revertidas, una experiencia unica.</p>
+            <div class="mcard-ctrl" data-name="Paleta Revertida" data-price="35"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPPINGS -->
+    <div class="m-sec vis" id="cat-toppings">
+      <h3 class="m-sec-title">Toppings y Siropes</h3>
+      <p class="t-note">Elige tus toppings y agregalos al carrito junto con tu pedido (sin costo adicional).</p>
+      <div class="t-tags" id="toppingTags">
+        <button type="button" class="t-tag" data-name="Topping: Fresita" data-price="0">Fresita</button>
+        <button type="button" class="t-tag" data-name="Topping: Oreo" data-price="0">Oreo</button>
+        <button type="button" class="t-tag" data-name="Topping: Gomitas" data-price="0">Gomitas</button>
+        <button type="button" class="t-tag" data-name="Topping: Chispas de Chocolate" data-price="0">Chispas de Chocolate</button>
+        <button type="button" class="t-tag" data-name="Topping: Chispas de Colores" data-price="0">Chispas de Colores</button>
+        <button type="button" class="t-tag" data-name="Topping: Mini Malvaviscos" data-price="0">Mini Malvaviscos</button>
+        <button type="button" class="t-tag" data-name="Topping: Mani" data-price="0">Mani</button>
+        <button type="button" class="t-tag" data-name="Topping: Pirulin" data-price="0">Pirulin</button>
+        <button type="button" class="t-tag" data-name="Topping: Mermeladas" data-price="0">Mermeladas</button>
+        <button type="button" class="t-tag" data-name="Topping: Sirope de Chocolate" data-price="0">Sirope de Chocolate</button>
+        <button type="button" class="t-tag" data-name="Topping: Dulce de Leche" data-price="0">Dulce de Leche</button>
+      </div>
+      <p style="font-size:.74rem;color:var(--ink2);font-weight:300;margin-bottom:1.5rem">Toca un topping para agregarlo al carrito. Vuelve a tocarlo para quitarlo.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- THREE COL INFO -->
+<section class="sec" style="background:var(--white);padding-top:0">
+  <div class="si">
+    <div class="info-grid fade">
+      <div class="info-col">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Pedir por WhatsApp" class="info-img"/>
+        <div class="info-body">
+          <p class="info-tag">Pedidos</p>
+          <h3 class="info-h3">Pide en segundos por WhatsApp</h3>
+          <p class="info-p">Escribenos, escoge tu producto y lo preparamos con amor. Rapido, directo y sin complicaciones.</p>
+          <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="info-a">Escribir ahora &rarr;</a>
+        </div>
+      </div>
+      <div class="info-col">
+        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80" alt="Menu completo" class="info-img"/>
+        <div class="info-body">
+          <p class="info-tag">Menu</p>
+          <h3 class="info-h3">Desde RD$15 — tostadas, batidas y mas</h3>
+          <p class="info-p">Cremitas artesanales, paletas, jugos naturales y tostadas con los mejores ingredientes.</p>
+          <a href="#menu" class="info-a">Ver menu completo &rarr;</a>
+        </div>
+      </div>
+      <div class="info-col">
+        <img src="https://images.unsplash.com/photo-1519690069926-8a5eb14a62fb?w=800&q=80" alt="Ubicacion" class="info-img"/>
+        <div class="info-body">
+          <p class="info-tag">Visitanos</p>
+          <h3 class="info-h3">En el corazon del Barrio La Esperanza</h3>
+          <p class="info-p">C/p #3, Hato Nuevo de Manoguayabo, Santo Domingo Oeste. Te esperamos.</p>
+          <a href="#contacto" class="info-a">Como llegar &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SPLIT -->
+<div class="about-band" id="nosotros">
+  <div class="about-img-w">
+    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1200&q=85" alt="La Casa del Helado — nuestra historia"/>
+  </div>
+  <div class="about-txt fade">
+    <p class="s-lbl">Nuestra historia</p>
+    <h2 class="s-h2">Hecho con amor<br><em>dominicano</em></h2>
+    <p class="s-sub">Somos una heladeria familiar del Barrio La Esperanza. Cada cremita, cada batida y cada tostada se prepara con ingredientes frescos y el sabor autentico de nuestra tierra.</p>
+    <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20conocer%20mas%20sobre%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="btn-p">Escribenos</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="sec contact-bg" id="contacto">
+  <div class="si">
+    <div class="sec-head fade">
+      <p class="s-lbl">Encontranos</p>
+      <h2 class="s-h2">Visitanos o <em>escribenos</em></h2>
+      <p class="s-sub">Estamos en Hato Nuevo de Manoguayabo. Un mensaje y tu pedido esta en camino.</p>
+    </div>
+    <div class="cgrid">
+      <div class="ccard fade">
+        <p class="ccard-lbl">Direccion</p>
+        <h3 class="ccard-h3">Barrio La Esperanza</h3>
+        <p class="ccard-p">C/p #3, Barrio La Esperanza<br>Hato Nuevo de Manoguayabo<br>Santo Domingo Oeste, CP 10307<br>Republica Dominicana</p>
+        <a href="https://maps.google.com/?q=Hato+Nuevo+de+Manoguayabo+Santo+Domingo" target="_blank" rel="noopener" class="ccard-a">Ver en Google Maps &rarr;</a>
+      </div>
+      <div class="ccard fade d1">
+        <p class="ccard-lbl">Contacto directo</p>
+        <h3 class="ccard-h3">WhatsApp y Redes</h3>
+        <p class="ccard-p">+1 (829) 634-3930<br>Pedidos disponibles por WhatsApp.<br>Escribenos el producto y te atendemos de inmediato.</p>
+        <div class="soc-row">
+          <a href="https://www.tiktok.com/@lacasadelhelado" target="_blank" rel="noopener" class="soc" aria-label="TikTok">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.18 8.18 0 004.78 1.52V6.81a4.85 4.85 0 01-1.01-.12z"/></svg>
+          </a>
+          <a href="https://wa.me/18296343930" target="_blank" rel="noopener" class="soc" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4.48 4.48 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.302-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0"/></svg>
+          </a>
+        </div>
+        <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="ccard-a">Pedir por WhatsApp &rarr;</a>
+      </div>
+      <div class="ccard fade" style="grid-column:1/-1;padding:0;overflow:hidden">
+        <div class="map-w">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30267.5!2d-70.002!3d18.498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5613c6aa9a4b5%3A0x0!2zSGF0byBOdWV2byBkZSBNYW5vZ3VheWFibw!5e0!3m2!1ses!2sdo!4v1234567890" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicacion La Casa del Helado"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-i">
+    <div class="foot-top">
+      <div>
+        <p class="foot-logo">La Casa <em>del Helado</em></p>
+        <p class="foot-tag">Dulce frescura que enamora &mdash; Barrio La Esperanza, SDO</p>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Ubicacion</a></li>
+        <li><a href="https://wa.me/18296343930" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.tiktok.com/@lacasadelhelado" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+    <div class="foot-btm">
+      &copy; 2025 La Casa del Helado &mdash; Hato Nuevo de Manoguayabo, Republica Dominicana
+    </div>
+  </div>
+</footer>
+
+<!-- CART OVERLAY + DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de pedido">
+  <div class="cart-head">
+    <h3>Tu pedido</h3>
+    <button class="cart-close" id="cartCloseBtn" aria-label="Cerrar carrito">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItemsWrap">
+    <div class="cart-empty" id="cartEmptyMsg">
+      Tu carrito esta vacio.<br>
+      Ve al <a href="#menu" id="cartGoMenu">menu</a> y agrega lo que quieras pedir.
+    </div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>Total</span><span id="cartTotalAmt">RD$0</span></div>
+    <button class="cart-send" id="cartSendBtn" disabled>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4.48 4.48 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.302-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0"/></svg>
+      Enviar pedido por WhatsApp
+    </button>
+    <button class="cart-clear" id="cartClearBtn">Vaciar carrito</button>
+  </div>
+</aside>
+
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" aria-label="Ver carrito">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+  <span class="wa-t">Mi pedido</span>
+  <span class="cart-fab-badge zero" id="cartFabBadge">0</span>
+</button>
+
+<script>
+/* ====== NAV / HERO / TABS (existing) ====== */
+
+// HERO SLIDER
+let cur=0;
+const slides=document.querySelectorAll('.h-slide');
+const dots=document.querySelectorAll('.h-dot');
+function goTo(n){slides[cur].classList.remove('on');dots[cur].classList.remove('on');cur=(n+slides.length)%slides.length;slides[cur].classList.add('on');dots[cur].classList.add('on')}
+dots.forEach(d=>d.addEventListener('click',()=>goTo(+d.dataset.i)));
+setInterval(()=>goTo(cur+1),5500);
+
+// HAMBURGER
+document.getElementById('hambBtn').addEventListener('click',()=>document.getElementById('mobNav').classList.add('open'));
+document.getElementById('mobClose').addEventListener('click',()=>document.getElementById('mobNav').classList.remove('open'));
+document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>document.getElementById('mobNav').classList.remove('open')));
+
+// MENU TABS
+function openTab(cat){
+  const all=cat==='all';
+  const cats=['tostadas','batidas','jugos','cremitas','paletas','toppings'];
+  document.querySelectorAll('.tab').forEach(t=>{t.classList.toggle('on',t.dataset.cat===cat||(all&&t.dataset.cat==='all'))});
+  cats.forEach(c=>{
+    const el=document.getElementById('cat-'+c);
+    if(el)el.classList.toggle('vis',all||c===cat);
+  });
+}
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>openTab(t.dataset.cat)));
+
+function openTabAndScroll(cat){
+  openTab(cat);
+  document.querySelector('#menu').scrollIntoView({behavior:'smooth'});
+}
+
+// DROPDOWN NAV
+document.querySelectorAll('.drop-item').forEach(item=>{
+  item.addEventListener('click',e=>{
+    const cat=item.dataset.cat;
+    if(cat){e.preventDefault();openTab(cat);document.querySelector('#menu').scrollIntoView({behavior:'smooth'})}
+  });
+});
+
+// FADE ON SCROLL
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+/* ====== CARRITO ====== */
+const WHATSAPP_NUMBER = '18296343930';
+const CART_KEY = 'lch_cart_v1';
+
+function loadCart(){
+  try{
+    const raw = localStorage.getItem(CART_KEY);
+    return raw ? JSON.parse(raw) : {};
+  }catch(e){ return {}; }
+}
+function saveCart(cart){
+  try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch(e){}
+}
+
+let cart = loadCart(); // { "Product Name": { price: Number, qty: Number } }
+
+function cartCount(){
+  return Object.values(cart).reduce((s,i)=>s+i.qty,0);
+}
+function cartTotal(){
+  return Object.values(cart).reduce((s,i)=>s+i.qty*i.price,0);
+}
+
+function addItem(name, price){
+  if(!cart[name]) cart[name] = { price: Number(price)||0, qty: 0 };
+  cart[name].qty += 1;
+  saveCart(cart);
+  renderAll();
+}
+function removeOne(name){
+  if(!cart[name]) return;
+  cart[name].qty -= 1;
+  if(cart[name].qty <= 0) delete cart[name];
+  saveCart(cart);
+  renderAll();
+}
+function removeAll(name){
+  delete cart[name];
+  saveCart(cart);
+  renderAll();
+}
+function clearCart(){
+  cart = {};
+  saveCart(cart);
+  renderAll();
+}
+
+// Render product card controls (add button or stepper)
+function renderCardControls(){
+  document.querySelectorAll('.mcard-ctrl').forEach(ctrl=>{
+    const name = ctrl.dataset.name;
+    const price = ctrl.dataset.price;
+    const inCart = cart[name];
+    if(inCart && inCart.qty > 0){
+      ctrl.innerHTML = `
+        <div class="mcard-stepper">
+          <button type="button" class="mc-minus" aria-label="Quitar uno">&minus;</button>
+          <span class="mcard-qty">${inCart.qty} en el pedido</span>
+          <button type="button" class="mc-plus" aria-label="Agregar uno">&plus;</button>
+        </div>`;
+      ctrl.querySelector('.mc-minus').addEventListener('click',()=>removeOne(name));
+      ctrl.querySelector('.mc-plus').addEventListener('click',()=>addItem(name, price));
+    }else{
+      ctrl.innerHTML = `
+        <button type="button" class="mcard-add">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Agregar al pedido
+        </button>`;
+      ctrl.querySelector('.mcard-add').addEventListener('click',()=>addItem(name, price));
+    }
+  });
+}
+
+// Render topping tags state
+function renderToppings(){
+  document.querySelectorAll('#toppingTags .t-tag').forEach(tag=>{
+    const name = tag.dataset.name;
+    const active = !!cart[name];
+    tag.style.background = active ? 'var(--coral)' : '';
+    tag.style.color = active ? '#fff' : '';
+    tag.style.borderColor = active ? 'var(--coral)' : '';
+  });
+}
+document.querySelectorAll('#toppingTags .t-tag').forEach(tag=>{
+  tag.addEventListener('click',()=>{
+    const name = tag.dataset.name, price = tag.dataset.price;
+    if(cart[name]){ removeAll(name); } else { addItem(name, price); }
+  });
+});
+
+// Render cart drawer content
+function renderDrawer(){
+  const wrap = document.getElementById('cartItemsWrap');
+  const entries = Object.entries(cart);
+  if(entries.length === 0){
+    wrap.innerHTML = `<div class="cart-empty" id="cartEmptyMsg">Tu carrito esta vacio.<br>Ve al <a href="#menu" id="cartGoMenu">menu</a> y agrega lo que quieras pedir.</div>`;
+    document.getElementById('cartGoMenu')?.addEventListener('click', closeCart);
+  }else{
+    wrap.innerHTML = entries.map(([name,item])=>{
+      const priceLabel = item.price > 0 ? `RD$${item.price} c/u` : 'Sin costo';
+      return `
+      <div class="cart-row" data-name="${name}">
+        <div class="cart-row-info">
+          <div class="cart-row-name">${name}</div>
+          <div class="cart-row-price">${priceLabel}</div>
+        </div>
+        <div class="cart-row-ctrl">
+          <button type="button" class="cr-minus" aria-label="Quitar uno">&minus;</button>
+          <span class="cart-row-qty">${item.qty}</span>
+          <button type="button" class="cr-plus" aria-label="Agregar uno">&plus;</button>
+        </div>
+        <button type="button" class="cart-row-remove">Quitar</button>
+      </div>`;
+    }).join('');
+    wrap.querySelectorAll('.cart-row').forEach(row=>{
+      const name = row.dataset.name;
+      row.querySelector('.cr-minus').addEventListener('click',()=>removeOne(name));
+      row.querySelector('.cr-plus').addEventListener('click',()=>addItem(name, cart[name].price));
+      row.querySelector('.cart-row-remove').addEventListener('click',()=>removeAll(name));
+    });
+  }
+  document.getElementById('cartTotalAmt').textContent = 'RD$' + cartTotal();
+  document.getElementById('cartSendBtn').disabled = entries.length === 0;
+}
+
+// Render badges (nav + fab)
+function renderBadges(){
+  const count = cartCount();
+  const navBadge = document.getElementById('navCartBadge');
+  const fabBadge = document.getElementById('cartFabBadge');
+  navBadge.textContent = count;
+  navBadge.style.display = count > 0 ? 'flex' : 'none';
+  fabBadge.textContent = count;
+  fabBadge.classList.toggle('zero', count === 0);
+}
+
+function renderAll(){
+  renderCardControls();
+  renderToppings();
+  renderDrawer();
+  renderBadges();
+}
+
+// Drawer open/close
+const cartOverlay = document.getElementById('cartOverlay');
+const cartDrawer = document.getElementById('cartDrawer');
+function openCart(){ cartOverlay.classList.add('open'); cartDrawer.classList.add('open'); }
+function closeCart(){ cartOverlay.classList.remove('open'); cartDrawer.classList.remove('open'); }
+document.getElementById('cartFab').addEventListener('click', openCart);
+document.getElementById('navCartBtn').addEventListener('click', openCart);
+document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+document.getElementById('cartClearBtn').addEventListener('click', ()=>{
+  if(confirm('Vaciar todo el carrito?')) clearCart();
+});
+
+// Send order via WhatsApp
+document.getElementById('cartSendBtn').addEventListener('click', ()=>{
+  const entries = Object.entries(cart);
+  if(entries.length === 0) return;
+  let lines = ['Hola, quiero hacer este pedido en La Casa del Helado:', ''];
+  entries.forEach(([name,item])=>{
+    if(item.price > 0){
+      lines.push(`- ${item.qty}x ${name} (RD$${item.price} c/u) = RD$${item.qty*item.price}`);
+    }else{
+      lines.push(`- ${item.qty}x ${name}`);
+    }
+  });
+  lines.push('');
+  lines.push(`Total: RD$${cartTotal()}`);
+  const msg = encodeURIComponent(lines.join('\n'));
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+});
+
+// Initial render
+renderAll();
+</script>
+</body>
+</html>
