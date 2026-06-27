@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="La Casa del Helado — Cremitas artesanales, batidas con Carnation, paletas, jugos naturales y tostadas en Barrio La Esperanza, Santo Domingo Oeste. Pedidos por WhatsApp."/>
+<title>La Casa del Helado</title>
+<link rel="icon" type="image/png" href="CASA DEL HELADO LOGO.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/styles.css"/>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+
+<div class="ann">
+  Pedidos rapidos por WhatsApp al <a href="https://wa.me/18296343930" target="_blank" rel="noopener">+1 (829) 634-3930</a> &mdash; Barrio La Esperanza, Santo Domingo Oeste
+</div>
+
+<nav id="mainNav">
+  <div class="nav-i">
+    <a href="#inicio" class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="https://ibb.co/MrB2yKN">
+          <circle cx="24" cy="24" r="23" fill="#fdf5f2" stroke="#d76fcf" stroke-width="2"/>
+          <path d="M24 12c4.4 0 8 3.4 8 7.7 0 .5-.3.9-.7 1-3.5.9-6 4-6.3 7.6h-2c-.3-3.6-2.8-6.7-6.3-7.6-.4-.1-.7-.5-.7-1 0-4.3 3.6-7.7 8-7.7z" fill="#d76fcf"/>
+          <path d="M22.4 28h3.2l-1 8.6c-.1.9-.8 1.4-1.6.9-.4-.2-.6-.6-.6-1z" fill="#a5408a"/>
+          <circle cx="19" cy="17.5" r="1.4" fill="#fff"/>
+          <circle cx="27.5" cy="16" r="1.1" fill="#fff"/>
+        </svg>
+      </span>
+      La Casa <em>del Helado</em>
+    </a>
+    <ul class="nav-links">
+      <li>
+        <a href="#menu">
+          Menu
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="drop">
+          <a href="#menu" class="drop-item" data-cat="cremitas">
+            <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&q=80" alt="Cremitas" class="drop-img"/>
+            <span class="drop-lbl">Cremitas Artesanales</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="batidas">
+            <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80" alt="Batidas" class="drop-img"/>
+            <span class="drop-lbl">Batidas con Carnation</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="tostadas">
+            <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&q=80" alt="Tostadas" class="drop-img"/>
+            <span class="drop-lbl">Tostadas</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="paletas">
+            <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=400&q=80" alt="Paletas" class="drop-img"/>
+            <span class="drop-lbl">Paletas</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="jugos">
+            <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&q=80" alt="Jugos" class="drop-img"/>
+            <span class="drop-lbl">Jugos Naturales</span>
+          </a>
+          <a href="#menu" class="drop-item" data-cat="toppings">
+            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80" alt="Toppings" class="drop-img"/>
+            <span class="drop-lbl">Toppings</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-r">
+      <a href="https://wa.me/18296343930" target="_blank" rel="noopener" class="nbtn nbtn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4.48 4.48 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.302-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0"/></svg>
+        WhatsApp
+      </a>
+      <a href="#menu" class="nbtn nbtn-solid">Ver el menu</a>
+      <button class="nbtn nbtn-cart" id="navCartBtn" aria-label="Ver carrito">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        <span class="cart-badge" id="navCartBadge" style="display:none">0</span>
+      </button>
+    </div>
+    <button class="ham" id="hambBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<nav class="mob" id="mobNav">
+  <button class="mob-x" id="mobClose">&times;</button>
+  <a href="#inicio" class="mob-link">Inicio</a>
+  <a href="#menu" class="mob-link">Menu</a>
+  <a href="#nosotros" class="mob-link">Nosotros</a>
+  <a href="#contacto" class="mob-link">Contacto</a>
+  <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="mob-cta">Pedir por WhatsApp</a>
+</nav>
+
+<!-- HERO SLIDER -->
+<section class="hero" id="inicio">
+  <div class="h-slide on">
+    <div class="h-bg" style="background-image:url('https://images.unsplash.com/photo-1488900128323-21503983a07e?w=1920&q=85')"></div>
+    <div class="h-ov"></div>
+    <div class="h-cnt">
+      <p class="h-eye">Barrio La Esperanza, Santo Domingo</p>
+      <h1 class="h-t1">Dulce frescura<br><em>que enamora</em></h1>
+      <p class="h-t2">Cremitas artesanales, paletas y batidas tropicales desde RD$15</p>
+      <div class="h-acts">
+        <a href="#menu" class="btn-p">Ver el menu</a>
+        <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="btn-o">Pedir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="h-slide">
+    <div class="h-bg" style="background-image:url('https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=1920&q=85')"></div>
+    <div class="h-ov"></div>
+    <div class="h-cnt">
+      <p class="h-eye">Paletas artesanales</p>
+      <h1 class="h-t1">Sabores que<br><em>recuerdan el verano</em></h1>
+      <p class="h-t2">Fresa, chocolate y nuestra paleta revertida especial</p>
+      <div class="h-acts">
+        <a href="#menu" class="btn-p">Ver paletas</a>
+      </div>
+    </div>
+  </div>
+  <div class="h-slide">
+    <div class="h-bg" style="background-image:url('https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=1920&q=85')"></div>
+    <div class="h-ov"></div>
+    <div class="h-cnt">
+      <p class="h-eye">Batidas con Carnation</p>
+      <h1 class="h-t1">El sabor<br><em>de lo nuestro</em></h1>
+      <p class="h-t2">Lechosa, zapote, guineo y fresa con Carnation</p>
+      <div class="h-acts">
+        <a href="#menu" class="btn-p">Ver batidas</a>
+        <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20una%20batida%20de%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="btn-o">Pedir ahora</a>
+      </div>
+    </div>
+  </div>
+  <div class="h-dots">
+    <button class="h-dot on" data-i="0"></button>
+    <button class="h-dot" data-i="1"></button>
+    <button class="h-dot" data-i="2"></button>
+  </div>
+</section>
+
+<!-- FEATURE BAND -->
+<div class="feat-band">
+  <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=1000&q=85" alt="Cremitas artesanales" class="feat-img"/>
+  <div class="feat-body">
+    <p class="feat-tag">Lo mas pedido</p>
+    <h2 class="feat-h2">Cremitas desde<br><em>RD$15</em></h2>
+    <p class="feat-p">Fresa, coco, chicle, pina y mas sabores. Preparadas a mano con ingredientes frescos, cada cremita lleva el sabor autentico del barrio.</p>
+    <a href="#menu" class="feat-link" onclick="openTab('cremitas');this.closest('a').setAttribute('href','#menu')">Ver cremitas</a>
+  </div>
+</div>
+
+<!-- CATEGORY MOSAIC -->
+<section class="sec sec-pb0" id="categorias">
+  <div class="si">
+    <div class="sec-head fade sec-head-mb">
+      <p class="s-lbl">Todo lo que tenemos</p>
+      <h2 class="s-h2">Una heladeria familiar<br><em>con sabor dominicano</em></h2>
+    </div>
+  </div>
+</section>
+<div class="mosaic-wrap">
+  <div class="mosaic fade">
+    <div class="mos-tile tall" onclick="openTabAndScroll('cremitas')">
+      <img src="https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=800&q=85" alt="Cremitas artesanales"/>
+      <div class="mos-ov">
+        <p class="mos-label">Cremitas<br>Artesanales</p>
+        <span class="mos-cta">Desde RD$15 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('batidas')">
+      <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=700&q=85" alt="Batidas"/>
+      <div class="mos-ov">
+        <p class="mos-label">Batidas con Carnation</p>
+        <span class="mos-cta">Desde RD$60 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('tostadas')">
+      <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=700&q=85" alt="Tostadas"/>
+      <div class="mos-ov">
+        <p class="mos-label">Tostadas</p>
+        <span class="mos-cta">Desde RD$50 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('paletas')">
+      <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=700&q=85" alt="Paletas"/>
+      <div class="mos-ov">
+        <p class="mos-label">Paletas</p>
+        <span class="mos-cta">Desde RD$15 &rarr;</span>
+      </div>
+    </div>
+    <div class="mos-tile" onclick="openTabAndScroll('jugos')">
+      <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=700&q=85" alt="Jugos naturales"/>
+      <div class="mos-ov">
+        <p class="mos-label">Jugos Naturales</p>
+        <span class="mos-cta">Desde RD$40 &rarr;</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="sec menu-bg" id="menu">
+  <div class="si">
+    <div class="sec-head fade sec-head-mb">
+      <p class="s-lbl">Menu completo</p>
+      <h2 class="s-h2">Cada producto,<br><em>hecho con cuidado</em></h2>
+      <p class="s-sub">Agrega los productos que quieras al carrito y envia todo tu pedido por WhatsApp de una sola vez.</p>
+    </div>
+    <div class="tabs" id="tabsBar">
+      <button class="tab on" data-cat="all">Todo</button>
+      <button class="tab" data-cat="tostadas">Tostadas</button>
+      <button class="tab" data-cat="batidas">Batidas</button>
+      <button class="tab" data-cat="jugos">Jugos</button>
+      <button class="tab" data-cat="cremitas">Cremitas</button>
+      <button class="tab" data-cat="paletas">Paletas</button>
+      <button class="tab" data-cat="toppings">Toppings</button>
+    </div>
+
+    <!-- TOSTADAS -->
+    <div class="m-sec vis" id="cat-tostadas">
+      <h3 class="m-sec-title">Tostadas</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=80" alt="Tostada Normal" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada Normal</span><span class="mcard-price">RD$50</span></div>
+            <p class="mcard-desc">Tostada clasica, crujiente y dorada al punto perfecto.</p>
+            <div class="mcard-ctrl" data-name="Tostada Normal" data-price="50"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80" alt="Tostada con Huevo" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada con Huevo</span><span class="mcard-price">RD$65</span></div>
+            <p class="mcard-desc">Tostada con huevo frito o revuelto, ideal para empezar el dia.</p>
+            <div class="mcard-ctrl" data-name="Tostada con Huevo" data-price="65"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80" alt="Tostada con Tocineta" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada con Tocineta</span><span class="mcard-price">RD$75</span></div>
+            <p class="mcard-desc">Tostada crujiente con tocineta dorada y sabrosa.</p>
+            <div class="mcard-ctrl" data-name="Tostada con Tocineta" data-price="75"></div>
+          </div>
+        </div>
+        <div class="mcard fade d3">
+          <img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?w=600&q=80" alt="Tostada con Huevo y Tocineta" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Tostada con Huevo y Tocineta</span><span class="mcard-price">RD$100</span></div>
+            <p class="mcard-desc">La combinacion perfecta: huevo y tocineta juntos en una misma tostada.</p>
+            <div class="mcard-ctrl" data-name="Tostada con Huevo y Tocineta" data-price="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BATIDAS -->
+    <div class="m-sec vis" id="cat-batidas">
+      <h3 class="m-sec-title">Batidas con Carnation</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80" alt="Lechosa con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Lechosa con Carnation</span><span class="mcard-price">RD$60</span></div>
+            <p class="mcard-desc">Cremosa batida de lechosa natural con leche Carnation.</p>
+            <div class="mcard-ctrl" data-name="Batida de Lechosa con Carnation" data-price="60"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&q=80" alt="Zapote con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Zapote con Carnation</span><span class="mcard-price">RD$60</span></div>
+            <p class="mcard-desc">El sabor unico del zapote dominicano en una batida fria y densa.</p>
+            <div class="mcard-ctrl" data-name="Batida de Zapote con Carnation" data-price="60"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1602595908921-4f5f63aaeaf7?w=600&q=80" alt="Guineo con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Guineo con Carnation</span><span class="mcard-price">RD$60</span></div>
+            <p class="mcard-desc">Batida de guineo maduro con Carnation, suave y deliciosa.</p>
+            <div class="mcard-ctrl" data-name="Batida de Guineo con Carnation" data-price="60"></div>
+          </div>
+        </div>
+        <div class="mcard fade d3">
+          <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80" alt="Fresa con Carnation" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Fresa con Carnation</span><span class="mcard-price">RD$75</span></div>
+            <p class="mcard-desc">Fresas frescas con Carnation para un sabor inigualable.</p>
+            <div class="mcard-ctrl" data-name="Batida de Fresa con Carnation" data-price="75"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JUGOS -->
+    <div class="m-sec vis" id="cat-jugos">
+      <h3 class="m-sec-title">Jugos Naturales</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80" alt="Jugo de Chinola" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Jugo de Chinola</span><span class="mcard-price">RD$40</span></div>
+            <p class="mcard-desc">Natural de chinola, refrescante y lleno de vitamina C.</p>
+            <div class="mcard-ctrl" data-name="Jugo Natural de Chinola" data-price="40"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1587015990127-424b954571a6?w=600&q=80" alt="Jugo de Limon" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Jugo de Limon</span><span class="mcard-price">RD$40</span></div>
+            <p class="mcard-desc">Limon fresco exprimido, ideal para el calor dominicano.</p>
+            <div class="mcard-ctrl" data-name="Jugo Natural de Limon" data-price="40"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80" alt="Jugo de Cereza" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Jugo de Cereza</span><span class="mcard-price">RD$40</span></div>
+            <p class="mcard-desc">Jugo natural de cereza, dulce y de un color precioso.</p>
+            <div class="mcard-ctrl" data-name="Jugo Natural de Cereza" data-price="40"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CREMITAS -->
+    <div class="m-sec vis" id="cat-cremitas">
+      <h3 class="m-sec-title">Cremitas Artesanales</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=600&q=80" alt="Cremita de Fresa" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Fresa</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Cremita artesanal con intenso sabor a fresa fresca.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Fresa" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=600&q=80" alt="Cremita de Coco" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Coco</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Suave y tropical, con todo el sabor del coco dominicano.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Coco" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&q=80" alt="Cremita de Chicle" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Chicle</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Divertida y colorida, el sabor clasico que encanta a todos.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Chicle" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d3">
+          <img src="https://images.unsplash.com/photo-1559622214-f8a9850965bb?w=600&q=80" alt="Cremita de Pina" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Cremita de Piña</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Frescura tropical con el dulce sabor de la pina.</p>
+            <div class="mcard-ctrl" data-name="Cremita de Pina" data-price="15"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PALETAS -->
+    <div class="m-sec vis" id="cat-paletas">
+      <h3 class="m-sec-title">Paletas</h3>
+      <div class="mgrid">
+        <div class="mcard fade">
+          <img src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=600&q=80" alt="Paleta de Fresa" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Paleta de Fresa</span><span class="mcard-price">RD$15</span></div>
+            <p class="mcard-desc">Paleta fria con intenso sabor a fresa natural.</p>
+            <div class="mcard-ctrl" data-name="Paleta de Fresa" data-price="15"></div>
+          </div>
+        </div>
+        <div class="mcard fade d1">
+          <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=600&q=80" alt="Paleta de Chocolate" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Paleta de Chocolate</span><span class="mcard-price">RD$30</span></div>
+            <p class="mcard-desc">Paleta cubierta en chocolate, un clasico que nunca falla.</p>
+            <div class="mcard-ctrl" data-name="Paleta de Chocolate" data-price="30"></div>
+          </div>
+        </div>
+        <div class="mcard fade d2">
+          <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=600&q=80" alt="Paleta Revertida" class="mcard-img"/>
+          <div class="mcard-body">
+            <div class="mcard-row"><span class="mcard-name">Paleta Revertida</span><span class="mcard-price">RD$35</span></div>
+            <p class="mcard-desc">Nuestra paleta especial de capas revertidas, una experiencia unica.</p>
+            <div class="mcard-ctrl" data-name="Paleta Revertida" data-price="35"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOPPINGS -->
+    <div class="m-sec vis" id="cat-toppings">
+      <h3 class="m-sec-title">Toppings y Siropes</h3>
+      <p class="t-note">Elige tus toppings y agregalos al carrito junto con tu pedido (sin costo adicional).</p>
+      <div class="t-tags" id="toppingTags">
+        <button type="button" class="t-tag" data-name="Topping: Fresita" data-price="0">Fresita</button>
+        <button type="button" class="t-tag" data-name="Topping: Oreo" data-price="0">Oreo</button>
+        <button type="button" class="t-tag" data-name="Topping: Gomitas" data-price="0">Gomitas</button>
+        <button type="button" class="t-tag" data-name="Topping: Chispas de Chocolate" data-price="0">Chispas de Chocolate</button>
+        <button type="button" class="t-tag" data-name="Topping: Chispas de Colores" data-price="0">Chispas de Colores</button>
+        <button type="button" class="t-tag" data-name="Topping: Mini Malvaviscos" data-price="0">Mini Malvaviscos</button>
+        <button type="button" class="t-tag" data-name="Topping: Mani" data-price="0">Mani</button>
+        <button type="button" class="t-tag" data-name="Topping: Pirulin" data-price="0">Pirulin</button>
+        <button type="button" class="t-tag" data-name="Topping: Mermeladas" data-price="0">Mermeladas</button>
+        <button type="button" class="t-tag" data-name="Topping: Sirope de Chocolate" data-price="0">Sirope de Chocolate</button>
+        <button type="button" class="t-tag" data-name="Topping: Dulce de Leche" data-price="0">Dulce de Leche</button>
+      </div>
+      <p class="topping-hint">Toca un topping para agregarlo al carrito. Vuelve a tocarlo para quitarlo.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- THREE COL INFO -->
+<section class="sec sec-no-pt">
+  <div class="si">
+    <div class="info-grid fade">
+      <div class="info-col">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="Pedir por WhatsApp" class="info-img"/>
+        <div class="info-body">
+          <p class="info-tag">Pedidos</p>
+          <h3 class="info-h3">Pide en segundos por WhatsApp</h3>
+          <p class="info-p">Escribenos, escoge tu producto y lo preparamos con amor. Rapido, directo y sin complicaciones.</p>
+          <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="info-a">Escribir ahora &rarr;</a>
+        </div>
+      </div>
+      <div class="info-col">
+        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=800&q=80" alt="Menu completo" class="info-img"/>
+        <div class="info-body">
+          <p class="info-tag">Menu</p>
+          <h3 class="info-h3">Desde RD$15 — tostadas, batidas y mas</h3>
+          <p class="info-p">Cremitas artesanales, paletas, jugos naturales y tostadas con los mejores ingredientes.</p>
+          <a href="#menu" class="info-a">Ver menu completo &rarr;</a>
+        </div>
+      </div>
+      <div class="info-col">
+        <img src="https://images.unsplash.com/photo-1519690069926-8a5eb14a62fb?w=800&q=80" alt="Ubicacion" class="info-img"/>
+        <div class="info-body">
+          <p class="info-tag">Visitanos</p>
+          <h3 class="info-h3">En el corazon del Barrio La Esperanza</h3>
+          <p class="info-p">C/p #3, Hato Nuevo de Manoguayabo, Santo Domingo Oeste. Te esperamos.</p>
+          <a href="#contacto" class="info-a">Como llegar &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SPLIT -->
+<div class="about-band" id="nosotros">
+  <div class="about-img-w">
+    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1200&q=85" alt="La Casa del Helado — nuestra historia"/>
+  </div>
+  <div class="about-txt fade">
+    <p class="s-lbl">Nuestra historia</p>
+    <h2 class="s-h2">Hecho con amor<br><em>dominicano</em></h2>
+    <p class="s-sub">Somos una heladeria familiar del Barrio La Esperanza. Cada cremita, cada batida y cada tostada se prepara con ingredientes frescos y el sabor autentico de nuestra tierra.</p>
+    <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20conocer%20mas%20sobre%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="btn-p">Escribenos</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="sec contact-bg" id="contacto">
+  <div class="si">
+    <div class="sec-head fade">
+      <p class="s-lbl">Encontranos</p>
+      <h2 class="s-h2">Visitanos o <em>escribenos</em></h2>
+      <p class="s-sub">Estamos en Hato Nuevo de Manoguayabo. Un mensaje y tu pedido esta en camino.</p>
+    </div>
+    <div class="cgrid">
+      <div class="ccard fade">
+        <p class="ccard-lbl">Direccion</p>
+        <h3 class="ccard-h3">Barrio La Esperanza</h3>
+        <p class="ccard-p">C/p #3, Barrio La Esperanza<br>Hato Nuevo de Manoguayabo<br>Santo Domingo Oeste, CP 10307<br>Republica Dominicana</p>
+        <a href="https://maps.google.com/?q=Hato+Nuevo+de+Manoguayabo+Santo+Domingo" target="_blank" rel="noopener" class="ccard-a">Ver en Google Maps &rarr;</a>
+      </div>
+      <div class="ccard fade d1">
+        <p class="ccard-lbl">Contacto directo</p>
+        <h3 class="ccard-h3">WhatsApp y Redes</h3>
+        <p class="ccard-p">+1 (829) 634-3930<br>Pedidos disponibles por WhatsApp.<br>Escribenos el producto y te atendemos de inmediato.</p>
+        <div class="soc-row">
+          <a href="https://www.tiktok.com/@lacasadelhelado" target="_blank" rel="noopener" class="soc" aria-label="TikTok">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.18 8.18 0 004.78 1.52V6.81a4.85 4.85 0 01-1.01-.12z"/></svg>
+          </a>
+          <a href="https://wa.me/18296343930" target="_blank" rel="noopener" class="soc" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4.48 4.48 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.302-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0"/></svg>
+          </a>
+        </div>
+        <a href="https://wa.me/18296343930?text=Hola%2C%20quiero%20hacer%20un%20pedido%20en%20La%20Casa%20del%20Helado" target="_blank" rel="noopener" class="ccard-a">Pedir por WhatsApp &rarr;</a>
+      </div>
+      <div class="ccard ccard-map fade">
+        <div class="map-w">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30267.5!2d-70.002!3d18.498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea5613c6aa9a4b5%3A0x0!2zSGF0byBOdWV2byBkZSBNYW5vZ3VheWFibw!5e0!3m2!1ses!2sdo!4v1234567890" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicacion La Casa del Helado"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-i">
+    <div class="foot-top">
+      <div>
+        <p class="foot-logo">La Casa <em>del Helado</em></p>
+        <p class="foot-tag">Dulce frescura que enamora &mdash; Barrio La Esperanza, SDO</p>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Ubicacion</a></li>
+        <li><a href="https://wa.me/18296343930" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://www.tiktok.com/@lacasadelhelado" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+    <div class="foot-btm">
+      &copy; 2025 La Casa del Helado &mdash; Hato Nuevo de Manoguayabo, Republica Dominicana
+    </div>
+  </div>
+</footer>
+
+<!-- CART OVERLAY + DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de pedido">
+  <div class="cart-head">
+    <h3>Tu pedido</h3>
+    <button class="cart-close" id="cartCloseBtn" aria-label="Cerrar carrito">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItemsWrap">
+    <div class="cart-empty" id="cartEmptyMsg">
+      Tu carrito esta vacio.<br>
+      Ve al <a href="#menu" id="cartGoMenu">menu</a> y agrega lo que quieras pedir.
+    </div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>Total</span><span id="cartTotalAmt">RD$0</span></div>
+    <button class="cart-send" id="cartSendBtn" disabled>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4.48 4.48 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.854L0 24l6.302-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0"/></svg>
+      Enviar pedido por WhatsApp
+    </button>
+    <button class="cart-clear" id="cartClearBtn">Vaciar carrito</button>
+  </div>
+</aside>
+
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" aria-label="Ver carrito">
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+  <span class="wa-t">Mi pedido</span>
+  <span class="cart-fab-badge zero" id="cartFabBadge">0</span>
+</button>
+
+</body>
+</html>
